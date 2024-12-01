@@ -43,7 +43,7 @@ class AdventOfCode
     end
   end
 
-  Part = Struct.new(:expected, :block, keyword_init: true) do
+  Part = Struct.new(:expected, :block) do
     def actual = @actual ||= block.call
     def correct? = expected && expected == actual
   end
