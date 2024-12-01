@@ -1,0 +1,6 @@
+#!/usr/bin/env ruby
+require_relative "../environment"
+
+part1 do
+  100
+end
