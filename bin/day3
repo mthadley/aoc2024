@@ -7,12 +7,12 @@ end
 
 part2 answer: 107862689 do
   enabled = true
-  input.scan(/(do\(\))|(don't\(\))|mul\((\d+),(\d+)\)/).sum do
+  input.scan(/(do|don't)\(\)|mul\((\d+),(\d+)\)/).sum do
     case it
-    in "do()", *          then enabled = true ; 0
-    in *, "don't()", *    then enabled = false; 0
-    in *, x, y if enabled then                ; x.to_i * y.to_i
-    else                                      ; 0
+    in "do",    _, _            then enabled = true ; 0
+    in "don't", _, _            then enabled = false; 0
+    in nil,     x, y if enabled then                ; x.to_i * y.to_i
+    else                                            ; 0
     end
   end
 end
